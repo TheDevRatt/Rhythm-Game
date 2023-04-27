@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://hltrak72pjyp"]
+
+[ext_resource type="Script" path="res://Scripts/Conductor.gd" id="1_wly1k"]
+
+[node name="Conductor" type="AudioStreamPlayer"]
+script = ExtResource("1_wly1k")
+
+[node name="StartTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

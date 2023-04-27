@@ -1,0 +1,97 @@
+[gd_scene load_steps=15 format=3 uid="uid://dvwgye8aoikba"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_t3m4y"]
+[ext_resource type="Texture2D" uid="uid://bk0d35uynjdf0" path="res://Sprites/ui/play_button/play1.png" id="2_pelw8"]
+[ext_resource type="Texture2D" uid="uid://bq3v5ru524rbl" path="res://Sprites/ui/play_button/play2.png" id="3_4q3gq"]
+[ext_resource type="Texture2D" uid="uid://bhodw7npf1g6y" path="res://Sprites/ui/slider_arrow1.png" id="4_y7av3"]
+[ext_resource type="Texture2D" uid="uid://cjj3egccqqq8n" path="res://Sprites/ui/slider_arrow2.png" id="5_2purr"]
+[ext_resource type="Texture2D" uid="uid://ctacfogb7cc55" path="res://Sprites/ui/slider.png" id="6_ycflg"]
+[ext_resource type="Texture2D" uid="uid://dgrihy4smi343" path="res://Sprites/ui/slider_content.png" id="7_sdl70"]
+[ext_resource type="FontFile" path="res://Fonts/heartbit2x.tres" id="8_r0iik"]
+[ext_resource type="Texture2D" uid="uid://bkietgb2ry3ph" path="res://Sprites/ui/test_button/test_button1.png" id="9_ogn2c"]
+[ext_resource type="Texture2D" uid="uid://m0xdi4lxkdgr" path="res://Sprites/ui/test_button/test_button2.png" id="10_jqd43"]
+[ext_resource type="AudioStream" uid="uid://c36t0yr3oinkm" path="res://Sounds/bell_ding.ogg" id="11_gyyiw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2h87l"]
+texture = ExtResource("6_ycflg")
+texture_margin_left = 4.76837e-07
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hwrje"]
+texture = ExtResource("7_sdl70")
+expand_margin_right = 8.0
+region_rect = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ynyd"]
+texture = ExtResource("7_sdl70")
+expand_margin_right = 8.0
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_t3m4y")
+
+[node name="Start_Button" type="TextureButton" parent="."]
+offset_left = 100.0
+offset_top = 65.0
+offset_right = 228.0
+offset_bottom = 113.0
+texture_normal = ExtResource("2_pelw8")
+texture_pressed = ExtResource("2_pelw8")
+texture_hover = ExtResource("3_4q3gq")
+
+[node name="HSlider" type="HSlider" parent="."]
+texture_filter = 1
+offset_left = 256.0
+offset_top = 8.0
+offset_right = 312.0
+offset_bottom = 24.0
+theme_override_icons/grabber = ExtResource("4_y7av3")
+theme_override_icons/grabber_highlight = ExtResource("5_2purr")
+theme_override_styles/slider = SubResource("StyleBoxTexture_2h87l")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_hwrje")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_4ynyd")
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 216.0
+offset_top = 8.0
+offset_right = 256.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("8_r0iik")
+theme_override_font_sizes/font_size = 16
+text = "sound"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+texture_filter = 1
+offset_left = 96.0
+offset_top = 160.0
+offset_right = 232.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("8_r0iik")
+theme_override_font_sizes/font_size = 16
+text = "controls: arrows/wasd"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 260.0
+offset_top = 25.0
+offset_right = 308.0
+offset_bottom = 43.0
+texture_normal = ExtResource("9_ogn2c")
+texture_pressed = ExtResource("9_ogn2c")
+texture_hover = ExtResource("10_jqd43")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TextureButton"]
+stream = ExtResource("11_gyyiw")
+
+[connection signal="button_down" from="Start_Button" to="." method="_on_start_button_button_down"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
