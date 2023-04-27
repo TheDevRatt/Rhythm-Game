@@ -1,0 +1,167 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4a5ou60bmcf"]
+
+[ext_resource type="Texture2D" uid="uid://dgdw2s8lvf2r2" path="res://Sprites/ui/play_again_button/play_again1.png" id="1_ffh28"]
+[ext_resource type="Texture2D" uid="uid://bcartepjirare" path="res://Sprites/ui/play_again_button/play_again2.png" id="2_pkhyt"]
+[ext_resource type="Texture2D" uid="uid://cbewr75apcri7" path="res://Sprites/ui/back_to_menu_button/back_to_menu1.png" id="3_3bstj"]
+[ext_resource type="Texture2D" uid="uid://fsr5fnv0s7xn" path="res://Sprites/ui/back_to_menu_button/back_to_menu2.png" id="4_5idbw"]
+[ext_resource type="FontFile" path="res://Fonts/heartbit2x.tres" id="5_btjoi"]
+
+[node name="End" type="Node2D"]
+
+[node name="PlayAgain" type="TextureButton" parent="."]
+offset_left = 48.0
+offset_top = 128.0
+offset_right = 144.0
+offset_bottom = 168.0
+texture_normal = ExtResource("1_ffh28")
+texture_pressed = ExtResource("1_ffh28")
+texture_hover = ExtResource("2_pkhyt")
+
+[node name="BackToMenu" type="TextureButton" parent="."]
+offset_left = 176.0
+offset_top = 128.0
+offset_right = 272.0
+offset_bottom = 168.0
+texture_normal = ExtResource("3_3bstj")
+texture_pressed = ExtResource("3_3bstj")
+texture_hover = ExtResource("4_5idbw")
+
+[node name="GradeLabel" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 8.0
+offset_right = 148.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+text = "grade:"
+vertical_alignment = 1
+
+[node name="Grade Number" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 8.0
+offset_right = 224.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 24.0
+offset_right = 148.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+text = "final score:"
+vertical_alignment = 1
+
+[node name="ScoreNumber" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 24.0
+offset_right = 224.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ComboLabel" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 40.0
+offset_right = 148.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+text = "max combo:"
+vertical_alignment = 1
+
+[node name="ComboNumber" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 40.0
+offset_right = 224.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="GreatLabel" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 56.0
+offset_right = 148.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+text = "great:"
+vertical_alignment = 1
+
+[node name="GreatNumber" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 56.0
+offset_right = 224.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="GoodLabel" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 72.0
+offset_right = 148.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+text = "good:"
+vertical_alignment = 1
+
+[node name="GoodNumber" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 72.0
+offset_right = 224.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="OkayLabel" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 88.0
+offset_right = 148.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+text = "okay:"
+vertical_alignment = 1
+
+[node name="OkayNumber" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 88.0
+offset_right = 224.0
+offset_bottom = 104.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MissedLabel" type="Label" parent="."]
+offset_left = 84.0
+offset_top = 104.0
+offset_right = 148.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+text = "missed:"
+vertical_alignment = 1
+
+[node name="MissedNumber" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 104.0
+offset_right = 224.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_btjoi")
+horizontal_alignment = 2
+vertical_alignment = 1

@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://b1jh5yemfn55h"]
+[gd_scene load_steps=16 format=3 uid="uid://crqqxkb3nmoyy"]
 
 [ext_resource type="Texture2D" uid="uid://e73s5toue2u1" path="res://Sprites/game/road/road.png" id="1_gmk17"]
-[ext_resource type="Script" path="res://Scenes/Game.gd" id="1_qf41u"]
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_w2h0b"]
 [ext_resource type="PackedScene" uid="uid://b71mhw8y1t7pc" path="res://Scenes/ArrowButton.tscn" id="2_r8yyp"]
 [ext_resource type="Texture2D" uid="uid://cqs4b1x7a5n" path="res://Sprites/game/arrow_button/up/arrow_button_up1.png" id="3_iitel"]
 [ext_resource type="Texture2D" uid="uid://su2e3f2hf78g" path="res://Sprites/game/arrow_button/up/arrow_button_up2.png" id="4_h38ov"]
@@ -56,7 +56,7 @@ animations = [{
 }]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_qf41u")
+script = ExtResource("1_w2h0b")
 
 [node name="Road" type="Sprite2D" parent="."]
 position = Vector2(100, 0)
@@ -66,14 +66,17 @@ centered = false
 [node name="ArrowUp" parent="." instance=ExtResource("2_r8yyp")]
 position = Vector2(160, 164)
 sprite_frames = SubResource("SpriteFrames_eo7a2")
+input = "up"
 
 [node name="ArrowLeft" parent="." instance=ExtResource("2_r8yyp")]
 position = Vector2(120, 164)
 sprite_frames = SubResource("SpriteFrames_1uc2d")
+input = "left"
 
 [node name="ArrowRight" parent="." instance=ExtResource("2_r8yyp")]
 position = Vector2(200, 164)
 sprite_frames = SubResource("SpriteFrames_bhdol")
+input = "right"
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
@@ -100,3 +103,6 @@ horizontal_alignment = 1
 [node name="Conductor" parent="." instance=ExtResource("10_6dfgs")]
 stream = ExtResource("11_8vybm")
 volume_db = -15.0
+
+[connection signal="Beat" from="Conductor" to="." method="_on_conductor_beat"]
+[connection signal="Measure" from="Conductor" to="." method="_on_conductor_measure"]

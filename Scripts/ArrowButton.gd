@@ -21,7 +21,7 @@ func _unhandled_input(event):
 				current_note.destroy(1)
 			_reset()
 		else:
-			get_parent().increment_score(0)
+adwddw			get_parent().increment_score(0)
 	if event.is_action_pressed(input):
 		frame = 1
 	elif event.is_action_released(input):
