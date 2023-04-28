@@ -1,16 +1,13 @@
 extends Node2D
 
-var Global = load("res://Scenes/Global.tscn")
-var global_instance = Global.instantiate()
-
 func _ready():
-	$GradeNumber.text = global_instance.grade
-	$ScoreNumber.text = str(global_instance.score)
-	$ComboNumber.text = str(global_instance.combo)
-	$GreatNumber.text = str(global_instance.great)
-	$GoodNumber.text = str(global_instance.good)
-	$OkayNumber.text = str(global_instance.good)
-	$MissedNumber.text = str(global_instance.missed)
+	$GradeNumber.text = Global.grade
+	$ScoreNumber.text = str(Global.score)
+	$ComboNumber.text = str(Global.combo)
+	$GreatNumber.text = str(Global.great)
+	$GoodNumber.text = str(Global.good)
+	$OkayNumber.text = str(Global.good)
+	$MissedNumber.text = str(Global.missed)
 	
 
 

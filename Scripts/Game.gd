@@ -24,13 +24,14 @@ var spawn_4_beat = 0
 var lane = 0
 var rand = 0
 var note = load("res://Scenes/Note.tscn")
-var global = load("res://Scenes/Global.tscn")
 var instance
 
 func _ready():
 	randomize()
-	#$Conductor.play_with_beat_offset(8)
-	$Conductor.play_from_beat(350, 8)
+	$Conductor.play_with_beat_offset(8)
+	
+	# This is just for debugging purposes
+	#$Conductor.play_from_beat(360, 8)
 	
 func _input(event):
 	if event.is_action("escape"):
@@ -105,12 +106,12 @@ func _on_conductor_beat(pos):
 		spawn_3_beat = 0
 		spawn_4_beat = 0
 	if song_position_in_beats > 404:
-		global.set_score(score)
-		global.combo = max_combo
-		global.great = great
-		global.good = good
-		global.okay = okay
-		global.missed = missed
+		Global.set_score(score)
+		Global.combo = max_combo
+		Global.great = great
+		Global.good = good
+		Global.okay = okay
+		Global.missed = missed
 		if get_tree().change_scene_to_file("res://Scenes/End.tscn") != OK:
 			print ("Error changing scene to End")
 
