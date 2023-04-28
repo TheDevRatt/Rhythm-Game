@@ -1,22 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b71mhw8y1t7pc"]
+[gd_scene load_steps=6 format=3 uid="uid://b71mhw8y1t7pc"]
 
-[ext_resource type="Texture2D" uid="uid://cqs4b1x7a5n" path="res://Sprites/game/arrow_button/up/arrow_button_up1.png" id="1_g637k"]
-[ext_resource type="Texture2D" uid="uid://su2e3f2hf78g" path="res://Sprites/game/arrow_button/up/arrow_button_up2.png" id="2_fh6th"]
+[ext_resource type="SpriteFrames" uid="uid://wr78axbjwxei" path="res://Frames/arrow_up_frames.tres" id="1_lc27u"]
 [ext_resource type="Script" path="res://Scripts/ArrowButton.gd" id="3_hbovq"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_47yss"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_g637k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_fh6th")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5r5kp"]
 size = Vector2(8, 4)
@@ -28,7 +13,7 @@ size = Vector2(8, 16)
 size = Vector2(8, 24)
 
 [node name="ArrowButton" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_47yss")
+sprite_frames = ExtResource("1_lc27u")
 script = ExtResource("3_hbovq")
 
 [node name="PerfectArea" type="Area2D" parent="."]
@@ -47,6 +32,8 @@ shape = SubResource("RectangleShape2D_1mmes")
 shape = SubResource("RectangleShape2D_gbji4")
 
 [node name="PushTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
 
 [connection signal="area_entered" from="PerfectArea" to="." method="_on_perfect_area_area_entered"]
 [connection signal="area_exited" from="PerfectArea" to="." method="_on_perfect_area_area_exited"]

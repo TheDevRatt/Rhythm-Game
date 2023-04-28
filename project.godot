@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Rhythm Game"
+run/main_scene="res://Scenes/Menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,7 +19,6 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/borderless=true
 window/stretch/mode="canvas_items"
 
 [editor_plugins]

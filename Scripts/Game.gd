@@ -24,48 +24,31 @@ var spawn_4_beat = 0
 var lane = 0
 var rand = 0
 var note = load("res://Scenes/Note.tscn")
-var Global = load("res://Scripts/Global.gd")
+var global = load("res://Scenes/Global.tscn")
 var instance
 
 func _ready():
 	randomize()
-	$Conductor.play_with_beat_offset()
+	#$Conductor.play_with_beat_offset(8)
+	$Conductor.play_from_beat(350, 8)
 	
 func _input(event):
 	if event.is_action("escape"):
 		if get_tree().change_scene_to_file("res://Scenes/Menu.tscn") != 0:
 			print("Error Changing Scene To Menu")
 
-
-
-func _on_conductor_measure(position):
-	if position == 1:
+func _on_conductor_measure(pos):
+	if pos == 1:
 		_spawn_notes(spawn_1_beat)
-	elif position == 2:
+	elif pos == 2:
 		_spawn_notes(spawn_2_beat)
-	elif position == 3:
+	elif pos == 3:
 		_spawn_notes(spawn_3_beat)
-	elif position == 4:
+	elif pos == 4:
 		_spawn_notes(spawn_4_beat)
 		
-
-func _spawn_notes(to_spawn):
-	if to_spawn > 0:
-		lane = randi() % 3
-		instance = note.instance()
-		instance.initialize(lane)
-		add_child(instance)
-	if to_spawn > 1:
-		while rand == lane:
-			rand = randi() % 3
-		lane = rand
-		instance = note.instance()
-		instance.initialize(lane)
-		add_child(instance)
-
-
-func _on_conductor_beat(position):
-	song_position_in_beats = position
+func _on_conductor_beat(pos):
+	song_position_in_beats = pos
 	if song_position_in_beats > 36:
 		spawn_1_beat = 1
 		spawn_2_beat = 1
@@ -122,15 +105,29 @@ func _on_conductor_beat(position):
 		spawn_3_beat = 0
 		spawn_4_beat = 0
 	if song_position_in_beats > 404:
-		Global.set_score(score)
-		Global.combo = max_combo
-		Global.great = great
-		Global.good = good
-		Global.okay = okay
-		Global.missed = missed
-		if get_tree().change_scene_to_file("res://") != OK:
+		global.set_score(score)
+		global.combo = max_combo
+		global.great = great
+		global.good = good
+		global.okay = okay
+		global.missed = missed
+		if get_tree().change_scene_to_file("res://Scenes/End.tscn") != OK:
 			print ("Error changing scene to End")
-			
+
+func _spawn_notes(to_spawn):
+	if to_spawn > 0:
+		lane = randi() % 3
+		instance = note.instantiate()
+		instance.initialize(lane)
+		add_child(instance)
+	if to_spawn > 1:
+		while rand == lane:
+			rand = randi() % 3
+		lane = rand
+		instance = note.instantiate()
+		instance.initialize(lane)
+		add_child(instance)
+
 func increment_score(by):
 	if by > 0:
 		combo += 1
@@ -160,3 +157,5 @@ func increment_score(by):
 func reset_combo():
 	combo = 0
 	$Combo.text = ""
+
+

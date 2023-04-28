@@ -1,59 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://crqqxkb3nmoyy"]
+[gd_scene load_steps=9 format=3 uid="uid://crqqxkb3nmoyy"]
 
 [ext_resource type="Texture2D" uid="uid://e73s5toue2u1" path="res://Sprites/game/road/road.png" id="1_gmk17"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_w2h0b"]
 [ext_resource type="PackedScene" uid="uid://b71mhw8y1t7pc" path="res://Scenes/ArrowButton.tscn" id="2_r8yyp"]
-[ext_resource type="Texture2D" uid="uid://cqs4b1x7a5n" path="res://Sprites/game/arrow_button/up/arrow_button_up1.png" id="3_iitel"]
-[ext_resource type="Texture2D" uid="uid://su2e3f2hf78g" path="res://Sprites/game/arrow_button/up/arrow_button_up2.png" id="4_h38ov"]
-[ext_resource type="Texture2D" uid="uid://bwltj6rqcoqln" path="res://Sprites/game/arrow_button/left/arrow_button_left1.png" id="5_3y3ri"]
-[ext_resource type="Texture2D" uid="uid://bgnjsw84gqelq" path="res://Sprites/game/arrow_button/left/arrow_button_left2.png" id="6_ofbhr"]
-[ext_resource type="Texture2D" uid="uid://br676qeh25blr" path="res://Sprites/game/arrow_button/right/arrow_button_right1.png" id="7_43owa"]
-[ext_resource type="Texture2D" uid="uid://cq0l0dqatmd5n" path="res://Sprites/game/arrow_button/right/arrow_button_right2.png" id="8_57sex"]
+[ext_resource type="SpriteFrames" path="res://Frames/arrow_left_frames.tres" id="4_2dk4b"]
+[ext_resource type="SpriteFrames" path="res://Frames/arrow_right_frames.tres" id="5_te7va"]
 [ext_resource type="FontFile" path="res://Fonts/heartbit2x.tres" id="9_1ipt3"]
 [ext_resource type="PackedScene" uid="uid://hltrak72pjyp" path="res://Scenes/Conductor.tscn" id="10_6dfgs"]
 [ext_resource type="AudioStream" uid="uid://dgwx657vj85v6" path="res://Songs/song.ogg" id="11_8vybm"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_eo7a2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_iitel")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_h38ov")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1uc2d"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_3y3ri")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ofbhr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bhdol"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_43owa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_57sex")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_w2h0b")
@@ -65,17 +19,16 @@ centered = false
 
 [node name="ArrowUp" parent="." instance=ExtResource("2_r8yyp")]
 position = Vector2(160, 164)
-sprite_frames = SubResource("SpriteFrames_eo7a2")
 input = "up"
 
 [node name="ArrowLeft" parent="." instance=ExtResource("2_r8yyp")]
 position = Vector2(120, 164)
-sprite_frames = SubResource("SpriteFrames_1uc2d")
+sprite_frames = ExtResource("4_2dk4b")
 input = "left"
 
 [node name="ArrowRight" parent="." instance=ExtResource("2_r8yyp")]
 position = Vector2(200, 164)
-sprite_frames = SubResource("SpriteFrames_bhdol")
+sprite_frames = ExtResource("5_te7va")
 input = "right"
 
 [node name="Label" type="Label" parent="."]
@@ -98,11 +51,11 @@ offset_bottom = 34.0
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 theme_override_fonts/font = ExtResource("9_1ipt3")
 theme_override_font_sizes/font_size = 16
-horizontal_alignment = 1
 
 [node name="Conductor" parent="." instance=ExtResource("10_6dfgs")]
 stream = ExtResource("11_8vybm")
 volume_db = -15.0
+bpm = 115
 
 [connection signal="Beat" from="Conductor" to="." method="_on_conductor_beat"]
 [connection signal="Measure" from="Conductor" to="." method="_on_conductor_measure"]

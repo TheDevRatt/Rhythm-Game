@@ -1,27 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbm5np3fwngxu"]
+[gd_scene load_steps=6 format=3 uid="uid://bbm5np3fwngxu"]
 
 [ext_resource type="Script" path="res://Scripts/Note.gd" id="1_gawg6"]
-[ext_resource type="Texture2D" uid="uid://by8igox0mtjuy" path="res://Sprites/game/arrow_button/left/arrow_button_left3.png" id="2_ekx5t"]
-[ext_resource type="Texture2D" uid="uid://dqsoq2prwckem" path="res://Sprites/game/arrow_button/up/arrow_button_up3.png" id="3_t0pxm"]
-[ext_resource type="Texture2D" uid="uid://gjyvwjo241ic" path="res://Sprites/game/arrow_button/right/arrow_button_right3.png" id="4_uwa5e"]
+[ext_resource type="SpriteFrames" path="res://Frames/note_frames.tres" id="2_hxgjc"]
 [ext_resource type="Texture2D" uid="uid://bn3706wi637bc" path="res://Sprites/game/particles/star.png" id="5_bikjj"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8kbh5"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ekx5t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_t0pxm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_uwa5e")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="FontFile" path="res://Fonts/heartbit2x.tres" id="6_qk44h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1if3f"]
 size = Vector2(8, 8)
@@ -30,7 +12,7 @@ size = Vector2(8, 8)
 script = ExtResource("1_gawg6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_8kbh5")
+sprite_frames = ExtResource("2_hxgjc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1if3f")
@@ -62,12 +44,14 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -20.0
-offset_top = -8.0
+offset_top = -12.0
 offset_right = 20.0
-offset_bottom = 6.0
+offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_qk44h")
+theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -15,8 +15,8 @@ var measure = 1
 var closest = 0
 var time_off_beat = 0.0
 
-signal Beat(position)
-signal Measure(position)
+signal Beat(pos)
+signal Measure(pos)
 
 func _ready():
 	sec_per_beat = 60.0 / bpm

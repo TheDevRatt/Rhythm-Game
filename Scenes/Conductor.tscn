@@ -6,5 +6,6 @@
 script = ExtResource("1_wly1k")
 
 [node name="StartTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
