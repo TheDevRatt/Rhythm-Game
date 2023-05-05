@@ -1,7 +1,10 @@
 # Example Rhythm Game Made In Godot 4
- A sample rhythm game made in Godot 4, a conversion from the 3.5 version of this project based on the tutorial created by [LegionGames](https://youtu.be/_FRiPPbJsFQ)
+ A sample rhythm game made in Godot 4, a conversion from the 3.5 version of this project based on the tutorial created by [LegionGames](https://github.com/LegionGames/Conductor-Example/)
  
  Coded in GDScript
+ 
+ [Tutorial Video by LegionGames](https://youtu.be/_FRiPPbJsFQ)
+ [![](https://markdown-videos.deta.dev/youtube/_FRiPPbJsFQ)](https://youtu.be/_FRiPPbJsFQ)
  
  ### Current Issues With This Implementation:
  - Notes are not perfectly synchronized.
