@@ -3,7 +3,7 @@
  
  Coded in GDScript
  
- [Tutorial Video by LegionGames](https://youtu.be/_FRiPPbJsFQ)
+ Context: [Tutorial Video by LegionGames](https://youtu.be/_FRiPPbJsFQ)\
  [![](https://markdown-videos.deta.dev/youtube/_FRiPPbJsFQ)](https://youtu.be/_FRiPPbJsFQ)
  
  ### Current Issues With This Implementation:
